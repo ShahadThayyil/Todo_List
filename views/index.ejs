@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO APP || SHAHAD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-700">
+    <div class=" px-14 py-8">
+        <h1 class="font-bold text-emerald-500 text-3xl mb-5">To-Do List</h1>
+        <form action="/add" method="POST">
+            <input type="text" name="title" placeholder="Enter Task"  class="bg-slate-800 shadow text-white p-2 w-full" required>
+            <button type="submit" class="py-2 px-4 rounded bg-blue-600 mt-4 shadow  text-white mb-5">Add</button>
+        </form>
+        <div class="lists">
+            <ul>
+                <% todos.forEach(todo =>{ %>
+                    <li class="flex justify-between rounded items-center">
+                        <span class="bg-slate-800 p-4 rounded shadow mt-8 w-full  text-emerald-500"><%= todo.title %></span>
+                        <div class="btn flex mt-8">
+                            <a href="/edit/<%= todo._id %>" class="bg-green-600 text-white rounded p-4">Edit</a>
+                            <form action="/delete/<%= todo._id %>" method="POST" class="ml-2">
+                                <button class="bg-red-600 text-white rounded p-4">Delete</button>
+                            </form>
+                        </div>
+                    </li>
+                <%}); %>
+        </ul>
+        </div>
+    </div>
+</body>
+</html>
