@@ -12,7 +12,6 @@ mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(()=>{console.log("DB successfully connected to the server")})
 .catch((err)=>{console.log("Error connecting to the database", err)});
 app.use('/',todoRoutes);
-// server room
 app.listen(PORT,(err)=>{
     if(err){
         console.log("An error founded please recheck your code",err);
